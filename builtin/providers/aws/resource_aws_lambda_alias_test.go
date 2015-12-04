@@ -2,7 +2,6 @@ package aws
 
 import (
 	"fmt"
-	"log"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -55,7 +54,6 @@ func testAccCheckAwsLambdaAliasExists(n string, mapping *lambda.AliasConfigurati
 	return func(s *terraform.State) error {
 		rs, ok := s.RootModule().Resources[n]
 		if !ok {
-			log.Printf("\n-----------\nDump Resources: \n%+v\n---------\n", s.RootModule().Resources)
 			return fmt.Errorf("Lambda alias not found: %s", n)
 		}
 
