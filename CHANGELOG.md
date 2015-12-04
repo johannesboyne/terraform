@@ -1,4 +1,29 @@
-## 0.6.8 (Unreleased)
+## 0.6.9 (Unreleased)
+
+FEATURES:
+  * **New provider: `vcd` - VMware vCloud Director** [GH-3785]
+  * **New provider: `postgresql` - Create PostgreSQL databases and roles** [GH-3653]
+  * **New resource: `google_pubsub_topic`** [GH-3671]
+  * **New resource: `google_pubsub_subscription`** [GH-3671]
+
+IMPROVEMENTS:
+
+  * provider/aws: Add placement_group as an option for `aws_autoscaling_group` [GH-3704]
+  * provider/docker: Add support for setting the entry point on `docker_container` resources [GH-3761]
+  * provider/docker: Add support for setting the restart policy on `docker_container` resources [GH-3761]
+  * provider/docker: Add support for setting memory, swap and CPU shares on `docker_container` resources [GH-3761]
+  * provider/docker: Add support for setting labels on `docker_container` resources [GH-3761]
+  * provider/docker: Add support for setting log driver and options on `docker_container` resources [GH-3761]
+  * provider/vsphere: Add support for custom vm params on `vsphere_virtual_machine` [GH-3867]
+  * provider/vsphere: Rename vcenter_server config parameter to something clearer [GH-3718]
+
+BUG FIXES:
+
+  * provider/docker: Fix an issue running with Docker Swarm by looking up containers by ID instead of name [GH-4148]
+  * provider/openstack: Better handling of load balancing resource state changes [GH-3926]
+  * provider/aws: Skip `source_security_group_id` determination logic for Classic ELBs [GH-4075]
+
+## 0.6.8 (December 2, 2015)
 
 FEATURES:
 
@@ -17,8 +42,11 @@ IMPROVEMENTS:
 BUG FIXES:
 
   * core: Fix a bug which prevented HEREDOC syntax being used in lists [GH-4078]
+  * core: Fix a bug which prevented HEREDOC syntax where the anchor ends in a number [GH-4128]
+  * core: Fix a bug which prevented HEREDOC syntax being used with Windows line endings [GH-4069]
   * provider/aws: Fix a bug which could result in a panic when reading EC2 metadata [GH-4024]
   * provider/aws: Fix issue recreating security group rule if it has been destroyed [GH-4050]
+  * provider/aws: Fix issue with some attributes in Spot Instance Requests returning as nil [GH-4132]
   * provider/aws: Fix issue where SPF records in Route 53 could show differences with no modification to the configuration [GH-4108]
   * provisioner/chef: Fix issue with path separators breaking the Chef provisioner on Windows [GH-4041]
 
